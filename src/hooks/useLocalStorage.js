@@ -6,13 +6,13 @@ const useLocalStorage = (key, initialValue) => {
         if(localValue) {
             return JSON.parse(localValue);
         }
-        localStorage.setItem(key, initalValue);
+        localStorage.setItem(key, JSON.stringify(initialValue));
         return initialValue;
     });
 
     const setValue = value => {
         setStoredValue(value);
-        localStorage.setItem(key, value);
+        localStorage.setItem(key, JSON.stringify(value));
     };
 
     return [storedValue, setValue];
